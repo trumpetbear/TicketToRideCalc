@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+	<script src="js/jquery331.min.js"></script>
+	<script src="js/imageMapResizer.min.js"></script>
+	<!--<script type="text/javascript" src="js/hilight.js"></script>-->
+	<script src="js/index.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>Ticket To Ride</title>
+</head>
+
+<body>
+	<div id="divPage1">
+
+	</div>
+	<div id="divPage2">		
+		<div id="divGameBoard" class="gbWrapper" style="float:left;">		
+			<img src="https://imgur.com/rSEGCRx.jpg" class="mapImg" usemap="#image-map"/>
+			<map name="image-map">
+				<area alt="1" title="1" coords="186,128,229,124,265,109,264,97,219,91,181,97,144,114,146,124" shape="poly">
+				<area alt="2" title="2" coords="294,105,347,96,412,93,462,97,526,115,536,94,476,65,411,56,339,64,287,91" shape="poly">
+				<area alt="3" title="3" coords="660,153,705,160,806,171,809,151,711,124,674,116,569,104,565,120" shape="poly">
+				<area alt="4" title="4" coords="833,156,839,164,905,135,947,117,1024,99,1026,88,940,89,893,103" shape="poly">
+				<area alt="5" title="5" coords="1071,99,1092,105,1116,123,1130,148,1113,167,1089,156,1066,136,1054,117" shape="poly">
+				<area alt="6" title="6" coords="111,137,104,154,114,172,138,175,147,157,138,138" shape="poly">
+				<area alt="7" title="7" coords="142,182,140,189,195,195,237,188,269,166,283,121,271,116,241,150,209,171" shape="poly">
+				<area alt="8" title="8" coords="288,121,317,174,344,207,393,246,401,240,370,189,343,155,296,114" shape="poly">
+				<area alt="9" title="9" coords="411,236,445,191,474,159,525,122,534,129,498,176,468,208,420,244" shape="poly">
+				<area alt="10" title="10" coords="546,131,583,178,612,207,664,241,673,235,631,182,603,154,556,123" shape="poly">
+				<area alt="11" title="11" coords="697,225,729,201,767,186,807,178,813,189,781,210,741,225,701,236" shape="poly">
+				<area alt="12" title="12" coords="842,182,862,193,896,198,922,196,924,187,905,174,868,168,844,171" shape="poly">
+				<area alt="13" title="13" coords="941,181,956,140,983,114,1033,100,1036,108,1004,133,976,160,950,188" shape="poly">
+				<area alt="14" title="14" coords="1035,117,1034,153,1040,196,1055,239,1066,235,1066,191,1060,151,1047,116" shape="poly">
+				<area alt="15" title="15" coords="91,228,91,209,105,195,130,204,130,223,116,236" shape="poly">
+				<area alt="16" title="16" coords="139,200,227,208,306,224,381,253,380,264,298,253,217,234,137,208" shape="poly">
+				<area alt="17" title="17" coords="413,250,495,240,580,240,662,247,661,259,580,268,498,268,413,261" shape="poly">
+				<area alt="18" title="18" coords="687,242,767,220,852,204,932,200,933,212,856,232,771,247,691,252" shape="poly">
+				<area alt="19" title="19" coords="1072,240,1079,218,1098,187,1115,172,1137,187,1133,205,1115,234,1094,252" shape="poly">
+				<area alt="20" title="20" coords="82,257,106,264,94,330,92,389,96,459,70,460,50,395,53,313" shape="poly">
+				<area alt="21" title="21" coords="114,255,187,288,252,336,304,390,314,386,273,314,195,259,114,244" shape="poly">
+				<area alt="22" title="22" coords="322,374,335,334,352,300,383,271,394,275,381,314,359,349,332,378" shape="poly">
+				<area alt="23" title="23" coords="400,273,410,268,436,311,456,365,470,416,458,421,434,377,410,319" shape="poly">
+				<area alt="24" title="24" coords="423,278,479,306,551,336,611,357,614,346,559,314,485,286,428,268" shape="poly">
+				<area alt="25" title="25" coords="630,338,631,314,644,283,658,266,682,272,682,293,668,325,654,346" shape="poly">
+				<area alt="26" title="26" coords="682,269,709,290,736,300,799,311,799,300,765,286,728,273,687,257" shape="poly">
+				<area alt="27" title="27" coords="807,298,816,306,842,279,873,267,917,244,951,217,943,207,924,224,870,235,830,263" shape="poly">
+				<area alt="28" title="28" coords="952,212,954,222,949,234,949,266,958,289,973,289,975,268,975,238,965,208" shape="poly">
+				<area alt="29" title="29" coords="100,458,154,432,230,406,293,393,301,419,241,444,165,470,110,483" shape="poly">
+				<area alt="30" title="30" coords="326,417,364,428,406,436,444,439,446,415,410,401,368,392,330,393" shape="poly">
+				<area alt="31" title="31" coords="479,429,473,423,510,385,568,364,625,357,627,371,569,389,525,404" shape="poly">
+				<area alt="32" title="32" coords="652,354,664,342,678,329,687,320,696,313,705,305,713,301,729,302,805,317,801,327,778,327,749,326,729,326,707,334,696,341,657,362" shape="poly">
+				<area alt="33" title="33" coords="827,300,864,284,907,278,949,285,951,311,913,312,872,318,836,324" shape="poly">
+				<area alt="34" title="34" coords="979,284,993,268,1026,248,1047,244,1058,265,1048,277,1015,299,991,303" shape="poly">
+				<area alt="35" title="35" coords="1064,268,1059,286,1060,326,1068,343,1092,342,1098,324,1094,285,1088,268" shape="poly">
+				<area alt="36" title="36" coords="102,487,78,498,88,538,114,575,148,599,168,582,144,554,122,517" shape="poly">
+				<area alt="37" title="37" coords="171,577,175,555,186,533,212,524,233,525,237,538,215,546,199,557,182,580" shape="poly">
+				<area alt="38" title="38" coords="258,523,280,491,294,456,309,418,320,418,321,457,303,501,267,531" shape="poly">
+				<area alt="39" title="39" coords="313,592,326,543,351,498,385,465,445,444,449,452,404,477,377,511,347,556,325,595" shape="poly">
+				<area alt="40" title="40" coords="453,533,445,514,446,475,456,455,466,454,467,473,470,485,469,511,462,532" shape="poly">
+				<area alt="41" title="41" coords="473,464,498,497,533,514,580,519,623,523,622,511,578,502,540,494,508,481,479,461" shape="poly">
+				<area alt="42" title="42" coords="488,435,487,459,528,467,614,455,648,434,644,412,588,423,529,431" shape="poly">
+				<area alt="43" title="43" coords="635,376,636,395,652,410,674,400,674,383,658,368" shape="poly">
+				<area alt="44" title="44" coords="678,405,678,429,714,434,754,426,752,401,714,400" shape="poly">
+				<area alt="45" title="45" coords="754,397,759,374,780,344,797,331,817,344,813,362,792,395,775,411" shape="poly">
+				<area alt="46" title="46" coords="775,417,820,382,897,340,953,314,958,326,907,361,834,404,781,426" shape="poly">
+				<area alt="47" title="47" coords="859,451,865,417,894,380,933,357,962,327,970,331,956,366,920,393,890,425,868,457" shape="poly">
+				<area alt="48" title="48" coords="979,336,975,352,983,392,994,410,1004,408,1005,388,997,348,987,331" shape="poly">
+				<area alt="49" title="49" coords="988,323,1000,333,1038,353,1058,357,1062,348,1048,336,1013,317,992,312" shape="poly">
+				<area alt="50" title="50" coords="184,588,222,573,267,573,305,590,303,603,264,597,225,597,187,599" shape="poly">
+				<area alt="51" title="51" coords="332,595,366,569,402,552,441,543,447,554,416,572,378,590,334,602" shape="poly">
+				<area alt="52" title="52" coords="473,539,511,529,551,526,593,527,594,535,556,546,511,552,475,551" shape="poly">
+				<area alt="53" title="53" coords="657,429,652,443,641,450,632,482,634,502,657,510,669,494,678,459,678,435" shape="poly">
+				<area alt="54" title="54" coords="657,516,675,507,719,505,733,513,733,522,714,529,683,530,666,526,657,526" shape="poly">
+				<area alt="55" title="55" coords="740,505,739,487,748,449,759,429,771,433,771,455,763,491,751,510" shape="poly">
+				<area alt="56" title="56" coords="759,517,794,505,830,491,864,472,871,478,843,510,801,527,758,527" shape="poly">
+				<area alt="57" title="57" coords="776,445,789,455,829,466,852,467,853,459,838,446,804,436,782,433" shape="poly">
+				<area alt="58" title="58" coords="886,476,894,492,912,496,920,488,907,471,890,470" shape="poly">
+				<area alt="59" title="59" coords="881,452,911,424,958,411,1000,421,999,430,942,438,888,458" shape="poly">
+				<area alt="60" title="60" coords="1013,422,1018,403,1042,373,1063,362,1082,377,1073,396,1049,427,1031,439" shape="poly">
+				<area alt="61" title="61" coords="186,615,209,641,250,665,294,674,343,681,375,679,410,673,422,662,419,653,369,652,304,650,228,623,192,606" shape="poly">
+				<area alt="62" title="62" coords="322,619,358,635,400,645,435,649,441,639,407,622,366,612,326,608" shape="poly">
+				<area alt="63" title="63" coords="456,635,466,618,468,579,462,561,451,560,445,580,442,614,446,634" shape="poly">
+				<area alt="64" title="64" coords="466,638,466,649,500,638,525,632,551,619,575,608,589,596,610,575,620,564,634,531,624,527,589,560,564,584,513,611" shape="poly">
+				<area alt="65" title="65" coords="649,611,640,594,635,553,640,534,663,533,674,547,676,579,674,606" shape="poly">
+				<area alt="66" title="66" coords="681,595,686,578,710,545,727,533,734,536,730,556,707,585,691,602" shape="poly">
+				<area alt="67" title="67" coords="749,540,762,576,779,610,804,644,812,640,804,602,784,566,759,535" shape="poly">
+				<area alt="68" title="68" coords="821,636,835,587,852,563,877,527,915,505,932,526,906,554,883,583,860,615,841,649" shape="poly">
+				<area alt="69" title="69" coords="933,490,943,472,975,445,994,440,1011,456,1001,472,974,498,952,507" shape="poly">
+				<area alt="70" title="70" coords="953,513,970,505,1014,509,1030,516,1030,528,1013,532,971,530,951,522" shape="poly">
+				<area alt="71" title="71" coords="1019,454,1031,469,1042,476,1042,497,1051,505,1068,471,1022,443" shape="poly">
+				<area alt="72" title="72" coords="457,665,492,693,533,705,577,710,622,713,665,704,703,691,697,675,620,687,547,685,466,657" shape="poly">
+				<area alt="73" title="73" coords="487,660,525,660,613,648,649,636,646,622,608,623,525,639,489,651" shape="poly">
+				<area alt="74" title="74" coords="666,638,673,657,689,667,707,647,701,632,683,623" shape="poly">
+				<area alt="75" title="75" coords="726,661,741,652,780,646,801,651,805,661,784,669,746,676,727,672" shape="poly">
+				<area alt="76" title="76" coords="845,654,873,636,895,622,922,616,941,613,964,616,987,621,1003,636,1029,661,1064,702,1056,709,1022,680,987,651,944,640,899,645,851,662" shape="poly">
+				<area alt="77" title="77" coords="936,531,954,565,1000,617,1069,687,1020,609,971,552,945,528" shape="poly">
+				<area alt="78" title="78" coords="1040,528,1035,550,1037,574,1040,601,1048,629,1081,684,1089,679,1068,620,1062,590,1059,559,1053,531" shape="poly">
+			</map>			
+		</div>
+		<div id="divScore" style="height:100%;overflow:hidden;text-align:center;">
+			<span id="spnGreen" class="colorButton selected" style="background-color:green;"><span class="txt">0</span></span>
+			<span id="spnYellow" class="colorButton" style="background-color:#eaea00;color:black;"><span class="txt">0</span></span>
+			<span id="spnBlack" class="colorButton" style="background-color:black;"><span class="txt">0</span></span>
+			<span id="spnBlue" class="colorButton" style="background-color:blue;"><span class="txt">0</span></span>
+			<span id="spnRed" class="colorButton" style="background-color:#cb0000;"><span class="txt">0</span></span>
+		</div>
+	</div>
+</body>
+
+</html>
