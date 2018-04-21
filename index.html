@@ -39,15 +39,17 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 	<script src="js/jquery331.min.js"></script>
 	<script src="js/imageMapResizer.min.js"></script>
-	<!--<script type="text/javascript" src="js/hilight.js"></script>-->
+	<script type="text/javascript" src="js/hilight.js"></script>
 	<script src="js/index.js"></script>
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <title>Ticket To Ride</title>
 </head>
 
 <body>
-	<div id="divPage1">
-
+	<div id="divPage1" style="display:none;">
+		Select Players Colors
+		<div id="divPlayerSelect"></div>
+		<a id="lnkPlay">Play</a>
 	</div>
 	<div id="divPage2">		
 		<div id="divGameBoard" class="gbWrapper" style="float:left;">		
@@ -131,14 +133,17 @@
 				<area alt="76" title="76" coords="845,654,873,636,895,622,922,616,941,613,964,616,987,621,1003,636,1029,661,1064,702,1056,709,1022,680,987,651,944,640,899,645,851,662" shape="poly">
 				<area alt="77" title="77" coords="936,531,954,565,1000,617,1069,687,1020,609,971,552,945,528" shape="poly">
 				<area alt="78" title="78" coords="1040,528,1035,550,1037,574,1040,601,1048,629,1081,684,1089,679,1068,620,1062,590,1059,559,1053,531" shape="poly">
-			</map>			
+			</map>
+			<div style="display: inline;background-color: red;float: left;vertical-align: bottom;height: 50px;width: 100px;z-index: 1000;position: absolute;">
+			
+			</div>
 		</div>
-		<div id="divScore" style="height:100%;overflow:hidden;text-align:center;">
-			<span id="spnGreen" class="colorButton selected" style="background-color:green;"><span class="txt">0</span></span>
-			<span id="spnYellow" class="colorButton" style="background-color:#eaea00;color:black;"><span class="txt">0</span></span>
-			<span id="spnBlack" class="colorButton" style="background-color:black;"><span class="txt">0</span></span>
-			<span id="spnBlue" class="colorButton" style="background-color:blue;"><span class="txt">0</span></span>
-			<span id="spnRed" class="colorButton" style="background-color:#cb0000;"><span class="txt">0</span></span>
+		<div id="divScore" style="height:100%;overflow:hidden;">
+			<span id="spnGreen" class="colorButton selected" style="background-color:green;"><span class="txt">0</span><!--<span class="rem">Cars: 45</span>--></span>
+			<span id="spnYellow" class="colorButton" style="background-color:#eaea00;color:black;"><span class="txt">0</span><!--<span class="rem">Cars: 45</span>--></span>
+			<span id="spnBlack" class="colorButton" style="background-color:black;"><span class="txt">0</span><!--<span class="rem">Cars: 45</span>--></span>
+			<span id="spnBlue" class="colorButton" style="background-color:blue;"><span class="txt">0</span><!--<span class="rem">Cars: 45</span>--></span>
+			<span id="spnRed" class="colorButton" style="background-color:#cb0000;"><span class="txt">0</span><!--<span class="rem">Cars: 45</span>--></span>
 		</div>
 	</div>
 </body>
