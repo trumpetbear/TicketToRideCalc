@@ -131,9 +131,16 @@ h1 {
 	top: 34%;
     font-size: 25px;
     font-weight: bold;
+	left:43%;
 }
 
 .selected {
 	outline: 4px solid white;
     outline-offset: -8px;
+}
+
+.rem {
+	position:relative;
+	top:56%;
+	left:24%;
 }
