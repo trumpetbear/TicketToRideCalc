@@ -52,8 +52,8 @@
 		<a id="lnkPlay">Play</a>
 	</div>
 	<div id="divPage2">		
-		<div id="divGameBoard" class="gbWrapper" style="float:left;">		
-			<img src="https://imgur.com/rSEGCRx.jpg" class="mapImg" usemap="#image-map"/>
+		<div id="divGameBoard" class="gbWrapper">		
+			<img src="img/TTRMap.jpg" class="mapImg" usemap="#image-map"/>
 			<map name="image-map">
 				<area alt="1" title="1" coords="186,128,229,124,265,109,264,97,219,91,181,97,144,114,146,124" shape="poly">
 				<area alt="2" title="2" coords="294,105,347,96,412,93,462,97,526,115,536,94,476,65,411,56,339,64,287,91" shape="poly">
@@ -134,16 +134,16 @@
 				<area alt="77" title="77" coords="936,531,954,565,1000,617,1069,687,1020,609,971,552,945,528" shape="poly">
 				<area alt="78" title="78" coords="1040,528,1035,550,1037,574,1040,601,1048,629,1081,684,1089,679,1068,620,1062,590,1059,559,1053,531" shape="poly">
 			</map>
-			<div style="display: inline;background-color: red;float: left;vertical-align: bottom;height: 50px;width: 100px;z-index: 1000;position: absolute;">
+			<div style="display: none;background-color: red;float: left;vertical-align: bottom;height: 50px;width: 100px;z-index: 1000;position: absolute;">
 			
 			</div>
 		</div>
-		<div id="divScore" style="height:100%;overflow:hidden;">
-			<span id="spnGreen" class="colorButton selected" style="background-color:green;"><span class="txt">0</span><!--<span class="rem">Cars: 45</span>--></span>
-			<span id="spnYellow" class="colorButton" style="background-color:#eaea00;color:black;"><span class="txt">0</span><!--<span class="rem">Cars: 45</span>--></span>
-			<span id="spnBlack" class="colorButton" style="background-color:black;"><span class="txt">0</span><!--<span class="rem">Cars: 45</span>--></span>
-			<span id="spnBlue" class="colorButton" style="background-color:blue;"><span class="txt">0</span><!--<span class="rem">Cars: 45</span>--></span>
-			<span id="spnRed" class="colorButton" style="background-color:#cb0000;"><span class="txt">0</span><!--<span class="rem">Cars: 45</span>--></span>
+		<div id="divScore">
+			<span id="spnGreen" class="colorButton selected p0" style="background-color:green;"><span class="txt">0</span><span class="rem">45</span></span>
+			<span id="spnYellow" class="colorButton p1" style="background-color:#eaea00;color:black;"><span class="txt">0</span><span class="rem">45</span></span>
+			<span id="spnBlack" class="colorButton p2" style="background-color:black;"><span class="txt">0</span><span class="rem">45</span></span>
+			<span id="spnBlue" class="colorButton p3" style="background-color:blue;"><span class="txt">0</span><span class="rem">45</span></span>
+			<span id="spnRed" class="colorButton p4" style="background-color:#cb0000;"><span class="txt">0</span><span class="rem">45</span></span>
 		</div>
 	</div>
 </body>
