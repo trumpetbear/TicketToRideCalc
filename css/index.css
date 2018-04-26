@@ -27,6 +27,7 @@ html, body, #divPage2 {
 #divGameBoard {
 	float:left;
 	height:100%;
+	position:relative;
 }
 
 .mapImg {
@@ -157,6 +158,26 @@ h1 {
 	overflow:hidden;
 }
 
+#divClear {
+	display:block;
+	background-color:red;
+	height:10%;
+	width:10%;
+	position:absolute;
+	bottom:0;
+	color:white;
+	text-align:center;
+}
+
+#divClearText {
+	width:100%;
+	position:absolute;
+	top:50%;
+	transform: translateY(-50%);
+	margin: 0 auto;
+	font-weight:bold;
+}
+
 @media screen and (min-width: 1024px) {
     #divGameBoard {
 		height: auto;
@@ -190,4 +211,13 @@ h1 {
 		height:100%;
 	}
 	
+	#divClear {
+		height:5%;
+		width:10%;
+		top:0;
+	}
+	
+	#divClearText {
+		
+	}
 }
