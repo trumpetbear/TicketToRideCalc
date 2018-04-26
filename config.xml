@@ -2,7 +2,7 @@
 <widget id="com.phonegap.TTRCalculator" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Ticket To Ride Score Calculator</name>
     <description>
-        Ticket To Ride Score Calculator and Scoreimulator
+        Ticket To Ride Score Calculator and Simulator
     </description>
     <author href="http://phonegap.com">
         Ryan Allison
