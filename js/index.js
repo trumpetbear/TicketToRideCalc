@@ -16,7 +16,6 @@ $(document).ready(function() {
         var routenum = raw.attr("title");		
 		var route = eval("r" + routenum);
 		if (route[0] > activePlayer[2]) {
-			//$(this).data('maphilight', {alwaysOn:true, fillColor:color, fillOpacity: 0, strokeOpacity:0, strokeWidth:0}).trigger('alwaysOn.maphilight');
 		} else {
 			if (route[1]) {
 				ClaimDoubleRoute(route, this);
@@ -114,7 +113,7 @@ $(document).ready(function() {
 		$(".txt").html("0");
 		$(".rem").html("45");
 		//Reset Route Display
-		$('img[usemap]').maphilight({fillOpacity: 0,strokeOpacity: 0});
+		$('area').data('maphilight', {alwaysOn:false, fillOpacity:0, strokeOpacity:0, strokeWidth:0}).trigger('alwaysOn.maphilight');
 	});
 });
 
