@@ -1,11 +1,7 @@
 //var player = [color, score, trains remaining, highlight color]
-var p0 = ["Green", 0, 45, '38ce21'];
-var p1 = ["Yellow", 0, 45, 'fcf93a'];
-var p2 = ["Black", 0, 45, '000000'];
-var p3 = ["Blue", 0, 45, '002eff'];
-var p4 = ["Red", 0, 45, 'ff0000'];
+var p0,p1,p2,p3,p4,activePlayer;
 var activePlayerNum = 0;
-var activePlayer = eval("p" + activePlayerNum);
+resetPlayers();
 
 $(document).ready(function() {
     $('map').imageMapResize();
@@ -51,10 +47,10 @@ $(document).ready(function() {
 		subtractTrains(route);
 		if (claimsecondspot) {
 			route[3] = activePlayerNum;
-			$(maparea).data('maphilight', {alwaysOn:true, fillColor:eval("p"+route[2])[3], fillOpacity:1, strokeOpacity:1, strokeWidth:4, strokeColor:color}).trigger('alwaysOn.maphilight');
+			$(maparea).data('maphilight', {alwaysOn:true, fillColor:eval("p"+route[2])[3], fillOpacity:0.7, strokeOpacity:1, strokeWidth:4, strokeColor:color}).trigger('alwaysOn.maphilight');
 		} else {
 			route[2] = activePlayerNum;
-			$(maparea).data('maphilight', {alwaysOn:true, fillColor:color, fillOpacity:1, strokeOpacity:0, strokeWidth:0}).trigger('alwaysOn.maphilight');
+			$(maparea).data('maphilight', {alwaysOn:true, fillColor:color, fillOpacity:0.7, strokeOpacity:0, strokeWidth:0}).trigger('alwaysOn.maphilight');
 		}
 	}
 
@@ -104,12 +100,7 @@ $(document).ready(function() {
 			rt[3] = -1;
 		}
 		//Reset Player Data
-		p0 = ["Green", 0, 45, '38ce21'];
-		p1 = ["Yellow", 0, 45, 'fcf93a'];
-		p2 = ["Black", 0, 45, '000000'];
-		p3 = ["Blue", 0, 45, '002eff'];
-		p4 = ["Red", 0, 45, 'ff0000'];
-		activePlayer = eval("p" + activePlayerNum);
+		resetPlayers();
 		//Reset Score Display
 		$(".txt").html("0");
 		$(".rem").html("45");
@@ -118,7 +109,7 @@ $(document).ready(function() {
 	});
 });
 
-//Var routeNumber = [routeLength, allowDoubleRoute, routeIsClaimedBy, routeisAlsoClaimedBy];
+//var routeNumber = [routeLength, allowDoubleRoute, routeIsClaimedBy, routeisAlsoClaimedBy];
 var r1 = [3, false, -1];
 var r2 = [6, false, -1];
 var r3 = [6, false, -1];
@@ -216,28 +207,9 @@ function ScoreLookup(rtLen) {
 }
 
 function addScore(score) {
-    switch (activePlayerNum) {
-        case 0:
-            p0[1] += score;
-            $("#spnGreen .txt").html(p0[1]);
-            break;
-        case 1:
-            p1[1] += score;
-            $("#spnYellow .txt").html(p1[1]);
-            break;
-        case 2:
-            p2[1] += score;
-            $("#spnBlack .txt").html(p2[1]);
-            break;
-        case 3:
-            p3[1] += score;
-            $("#spnBlue .txt").html(p3[1]);
-            break;
-        case 4:
-            p4[1] += score;
-            $("#spnRed .txt").html(p4[1]);
-            break;
-    }
+	activePlayer[1] += score;
+	var sel = "#spn" + activePlayer[0] + " .txt";
+	$(sel).html(activePlayer[1]);
 }
 
 function addTrains(route) {
@@ -248,4 +220,13 @@ function subtractTrains(route) {
 	activePlayer[2] -= route[0];
 	var sel = ".p" + activePlayerNum + " .rem";
 	$(sel).html(activePlayer[2]);
+}
+
+function resetPlayers() {
+	p0 = ["Green", 0, 45, '008000'];
+	p1 = ["Yellow", 0, 45, 'fcf93a'];
+	p2 = ["Black", 0, 45, '000000'];
+	p3 = ["Blue", 0, 45, '0000ff'];
+	p4 = ["Red", 0, 45, 'cb0000'];
+	activePlayer = eval("p" + activePlayerNum);
 }
