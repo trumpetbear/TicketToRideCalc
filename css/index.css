@@ -178,7 +178,9 @@ h1 {
 	font-weight:bold;
 }
 
-@media screen and (min-width: 1024px) {
+/* Landscape */
+@media screen
+  and (max-aspect-ratio: 3/2) {
     #divGameBoard {
 		height: auto;
 		float:none;
