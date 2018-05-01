@@ -1,4 +1,3 @@
-//var player = [color, score, trains remaining, highlight color]
 var p0, p1, p2, p3, p4, activePlayer;
 var activePlayerNum = 0;
 resetPlayers();
@@ -240,6 +239,7 @@ function subtractTrains(route) {
 }
 
 function resetPlayers() {
+    //var player = [color, score, trains remaining, highlight color];
     p0 = ["Green", 0, 45, '008000'];
     p1 = ["Yellow", 0, 45, 'fcf93a'];
     p2 = ["Black", 0, 45, '000000'];
