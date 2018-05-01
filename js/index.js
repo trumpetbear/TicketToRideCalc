@@ -109,6 +109,7 @@ $(document).ready(function() {
 		p2 = ["Black", 0, 45, '000000'];
 		p3 = ["Blue", 0, 45, '002eff'];
 		p4 = ["Red", 0, 45, 'ff0000'];
+		activePlayer = eval("p" + activePlayerNum);
 		//Reset Score Display
 		$(".txt").html("0");
 		$(".rem").html("45");
