@@ -1,112 +1,129 @@
 //var player = [color, score, trains remaining, highlight color]
-var p0,p1,p2,p3,p4,activePlayer;
+var p0, p1, p2, p3, p4, activePlayer;
 var activePlayerNum = 0;
 resetPlayers();
 
 $(document).ready(function() {
     $('map').imageMapResize();
-	var color = activePlayer[3];
+    var color = activePlayer[3];
 
     $("map area").click(function(sender) {
         var raw = $(sender.target);
-        var routenum = raw.attr("title");		
-		var route = eval("r" + routenum);
-		if (route[0] > activePlayer[2]) {
-		} else {
-			if (route[1]) {
-				ClaimDoubleRoute(route, this);
-			} else {
-				ClaimSingleRoute(route, this);
-			}
-		}
+        var routenum = raw.attr("title");
+        var route = eval("r" + routenum);
+        if (route[0] > activePlayer[2]) {} else {
+            if (route[1]) {
+                ClaimDoubleRoute(route, this);
+            } else {
+                ClaimSingleRoute(route, this);
+            }
+        }
     });
-	
-	function ClaimSingleRoute(route, maparea) {
-		if (route[2] == -1) {
-			ClaimRoute(route, maparea, false);
-		} else {
-			if (route[2] == activePlayerNum) {
-				
-			}
-		}
-	}
-	
-	function ClaimDoubleRoute(route, maparea) {
-		if (route[2] == -1 && route[3] == -1) {
-			ClaimRoute(route, maparea, false);
-		} else if (route[3] == -1){
-			if (route[2] != activePlayerNum) {
-				ClaimRoute(route, maparea, true);
-			}
-		}
-	}
-	
-	function ClaimRoute(route, maparea, claimsecondspot){
-		var score = ScoreLookup(route[0]);		
-		addScore(score);
-		subtractTrains(route);
-		if (claimsecondspot) {
-			route[3] = activePlayerNum;
-			$(maparea).data('maphilight', {alwaysOn:true, fillColor:eval("p"+route[2])[3], fillOpacity:0.7, strokeOpacity:1, strokeWidth:4, strokeColor:color}).trigger('alwaysOn.maphilight');
-		} else {
-			route[2] = activePlayerNum;
-			$(maparea).data('maphilight', {alwaysOn:true, fillColor:color, fillOpacity:0.7, strokeOpacity:0, strokeWidth:0}).trigger('alwaysOn.maphilight');
-		}
-	}
+
+    function ClaimSingleRoute(route, maparea) {
+        if (route[2] == -1) {
+            ClaimRoute(route, maparea, false);
+        } else {
+            if (route[2] == activePlayerNum) {
+
+            }
+        }
+    }
+
+    function ClaimDoubleRoute(route, maparea) {
+        if (route[2] == -1 && route[3] == -1) {
+            ClaimRoute(route, maparea, false);
+        } else if (route[3] == -1) {
+            if (route[2] != activePlayerNum) {
+                ClaimRoute(route, maparea, true);
+            }
+        }
+    }
+
+    function ClaimRoute(route, maparea, claimsecondspot) {
+        var score = ScoreLookup(route[0]);
+        addScore(score);
+        subtractTrains(route);
+        if (claimsecondspot) {
+            route[3] = activePlayerNum;
+            $(maparea).data('maphilight', {
+                alwaysOn: true,
+                fillColor: eval("p" + route[2])[3],
+                fillOpacity: 0.7,
+                strokeOpacity: 1,
+                strokeWidth: 4,
+                strokeColor: color
+            }).trigger('alwaysOn.maphilight');
+        } else {
+            route[2] = activePlayerNum;
+            $(maparea).data('maphilight', {
+                alwaysOn: true,
+                fillColor: color,
+                fillOpacity: 0.7,
+                strokeOpacity: 0,
+                strokeWidth: 0
+            }).trigger('alwaysOn.maphilight');
+        }
+    }
 
     $('img[usemap]').maphilight({
         fillOpacity: 0,
         strokeOpacity: 0
     });
 
-    $('.colorButton').click(function() {        
-		if (!$(this).hasClass("selected")) {
-			$(".colorButton").removeClass("selected");
-			$(this).addClass("selected");
-		}
-        
+    $('.colorButton').click(function() {
+        if (!$(this).hasClass("selected")) {
+            $(".colorButton").removeClass("selected");
+            $(this).addClass("selected");
+        }
+
         var lnkId = $(this).attr("id");
 
         switch (lnkId) {
             case "spnGreen":
                 color = p0[3];
-				activePlayerNum = 0;
+                activePlayerNum = 0;
                 break;
             case "spnYellow":
-				color = p1[3];
-				activePlayerNum = 1;
+                color = p1[3];
+                activePlayerNum = 1;
                 break;
             case "spnBlack":
-				color = p2[3];
-				activePlayerNum = 2;
+                color = p2[3];
+                activePlayerNum = 2;
                 break;
             case "spnBlue":
-				color = p3[3];
-				activePlayerNum = 3;
+                color = p3[3];
+                activePlayerNum = 3;
                 break;
-			case "spnRed":
-				color = p4[3];
-				activePlayerNum = 4;
+            case "spnRed":
+                color = p4[3];
+                activePlayerNum = 4;
                 break;
         }
-		activePlayer = eval("p" + activePlayerNum);
+        activePlayer = eval("p" + activePlayerNum);
     });
-	
-	$("#divClear").click(function() {
-		//Reset Route Data
-		for (i = 1; i < 78; i++){
-			var rt = eval("r" + i);
-			rt[2] = -1;
-			rt[3] = -1;
-		}
-		//Reset Player Data
-		resetPlayers();
-		//Reset Score Display
-		$(".txt").html("0");
-		$(".rem").html("45");
-		//Reset Route Display
-		$('area').data('maphilight', {alwaysOn:false, fillOpacity:0, strokeOpacity:0, strokeWidth:0}).trigger('alwaysOn.maphilight');
-	});
+
+    $("#divClear").click(function() {
+        //Reset Route Data
+        for (i = 1; i < 78; i++) {
+            var rt = eval("r" + i);
+            rt[2] = -1;
+            rt[3] = -1;
+        }
+        //Reset Player Data
+        resetPlayers();
+        //Reset Score Display
+        $(".txt").html("0");
+        $(".rem").html("45");
+        //Reset Route Display
+        $('area').data('maphilight', {
+            alwaysOn: false,
+            fillOpacity: 0,
+            strokeOpacity: 0,
+            strokeWidth: 0
+        }).trigger('alwaysOn.maphilight');
+    });
 });
 
 //var routeNumber = [routeLength, allowDoubleRoute, routeIsClaimedBy, routeisAlsoClaimedBy];
@@ -207,26 +224,26 @@ function ScoreLookup(rtLen) {
 }
 
 function addScore(score) {
-	activePlayer[1] += score;
-	var sel = "#spn" + activePlayer[0] + " .txt";
-	$(sel).html(activePlayer[1]);
+    activePlayer[1] += score;
+    var sel = "#spn" + activePlayer[0] + " .txt";
+    $(sel).html(activePlayer[1]);
 }
 
 function addTrains(route) {
-	
+
 }
 
 function subtractTrains(route) {
-	activePlayer[2] -= route[0];
-	var sel = ".p" + activePlayerNum + " .rem";
-	$(sel).html(activePlayer[2]);
+    activePlayer[2] -= route[0];
+    var sel = ".p" + activePlayerNum + " .rem";
+    $(sel).html(activePlayer[2]);
 }
 
 function resetPlayers() {
-	p0 = ["Green", 0, 45, '008000'];
-	p1 = ["Yellow", 0, 45, 'fcf93a'];
-	p2 = ["Black", 0, 45, '000000'];
-	p3 = ["Blue", 0, 45, '0000ff'];
-	p4 = ["Red", 0, 45, 'cb0000'];
-	activePlayer = eval("p" + activePlayerNum);
+    p0 = ["Green", 0, 45, '008000'];
+    p1 = ["Yellow", 0, 45, 'fcf93a'];
+    p2 = ["Black", 0, 45, '000000'];
+    p3 = ["Blue", 0, 45, '0000ff'];
+    p4 = ["Red", 0, 45, 'cb0000'];
+    activePlayer = eval("p" + activePlayerNum);
 }
